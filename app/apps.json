@@ -8,9 +8,16 @@
 	},
 	{
 		"name":"findadoc",
-		"description":"Find a Stony Brook Medicine Doctor",
+		"description":"Old Find a Stony Brook Medicine Doctor by Jonas (to be removed)",
 		"icon":"app/findadoc2.png",
 		"onclick":"app/findadoc.js",
+		"fa":"fa-user-md"
+	},
+	{
+		"name":"findadocWade",
+		"description":"New Find a Stony Brook Medicine Doctor by Wade",
+		"icon":"app/findadoc2.png",
+		"onclick":"app/findadocWade.js",
 		"fa":"fa-user-md"
 	}
 ]
