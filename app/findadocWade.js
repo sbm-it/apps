@@ -1,12 +1,8 @@
-console.log('loaded findadocWade.js')
+console.log('loaded findadocWade1.js')
 
 // clean appSpace
-appSpace.innerHTML="https://sbmedxdev.uhmc.sunysb.edu/sbmApps/#/referrals-search" 
+appSpace.innerHTML="loading Wade's find-a-doc App" 
 
 
 //loading Angular first
-$.getScript('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js')
- .then(function(){
-     console.log('Angular is ready :-)')
-     $('<p style="color:blue">Angular is loaded :-) !</p>').appendTo(appSpace)
- })
+$("#clinApps").load("https://sbmedxdev.uhmc.sunysb.edu/directory");
