@@ -1,7 +1,7 @@
 console.log('loaded findadocWade.js')
 
 // clean appSpace
-appSpace.innerHTML="https://sbmedxdev.uhmc.sunysb.edu/sbmApps/#/referrals-search"
+appSpace.innerHTML="https://sbmedxdev.uhmc.sunysb.edu/sbmApps/#/referrals-search" 
 
 
 //loading Angular first
