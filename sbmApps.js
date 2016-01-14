@@ -1,90 +1,90 @@
-console.log('clinApps.js loaded')
+console.log('sbmApps.js loaded')
 
-clinApps= function(){
+sbmApps= function(){
     // ini
-    clinApps.loadApps()
-    //clinApps.msg('loading apps ...')
-    clinApps.getHash()
-    //clinAppsHead2.hidden=true
-    //clinAppsMsg.hidden=true
+    sbmApps.loadApps()
+    //sbmApps.msg('loading apps ...')
+    sbmApps.getHash()
+    //sbmAppsHead2.hidden=true
+    //sbmAppsMsg.hidden=true
 }
-clinApps.app={} // store app specific material here
+sbmApps.app={} // store app specific material here
 
 // plain message writter
-clinApps.msg=function(txt,clr){
+sbmApps.msg=function(txt,clr){
     if(!clr){clr='maroon'}
-    clinAppsMsg.style.color=clr
-    clinAppsMsg.innerHTML=txt
+    sbmAppsMsg.style.color=clr
+    sbmAppsMsg.innerHTML=txt
 }
 
 // assemble an app UI
-clinApps.assembleApp=function(x){
-    //var 
+sbmApps.assembleApp=function(x){
+    //var
     img = document.createElement('img')
     appSpace.appendChild(img)
     img.src=x.icon
     img.width=100
     img.onclick=function(){
-        clinApps.getScript(x.onclick)
+        sbmApps.getScript(x.onclick)
         //$.getScript(x.onclick)
-        clinApps.msg(x.description,'green')
-        //clinAppsHead2.hidden=false
-        //clinAppsHead.hidden=true
+        sbmApps.msg(x.description,'green')
+        //sbmAppsHead2.hidden=false
+        //sbmAppsHead.hidden=true
     }
-    
+
 }
 
 // load apps
-clinApps.loadApps=function(){
+sbmApps.loadApps=function(){
     //if(document.getElementById('msgIcon')){
     msgIcon.className="fa fa-home"
-    clinApps.msg('SBM App Store')
+    sbmApps.msg('SBM App Store')
     appSpace.innerHTML='' // clean it first
-    Object.getOwnPropertyNames(clinApps.manif).forEach(function(a){
-        clinApps.assembleApp(clinApps.manif[a])
+    Object.getOwnPropertyNames(sbmApps.manif).forEach(function(a){
+        sbmApps.assembleApp(sbmApps.manif[a])
     })
-    //} 
-    
+    //}
+
 }
 
 // load jobs
-clinApps.getHash=function(){
+sbmApps.getHash=function(){
     if(location.hash.length>0){
         if(!location.hash.match('.js')){
-            location.hash='app/'+location.hash.slice(1)+'.js'  // for example http://sbm-it.github.io/clinApps/#info
+            location.hash='app/'+location.hash.slice(1)+'.js'  // for example http://sbm-it.github.io/sbmApps/#info
         }
-        clinApps.getScript(location.hash.slice(1))
+        sbmApps.getScript(location.hash.slice(1))
     }
 }
 
-clinApps.getScript=function(src){ // like $.getScript but loads it into the head
+sbmApps.getScript=function(src){ // like $.getScript but loads it into the head
     var s = document.createElement('script')
     s.src=src
     document.head.appendChild(s)
 }
 
-clinApps.localforage=function(uri,fun){ // try localforage first, if it fails, it tries localforage/
+sbmApps.localforage=function(uri,fun){ // try localforage first, if it fails, it tries localforage/
     if(!fun){fun=function(x){console.log('locaforaged:',x)}}
     localforage.getItem(uri).then(function(x){
         if(!x){
             $.getJSON('localforage/'+uri+'.json')
              .then(function(x){
                  console.log('loading '+uri+' and caching from localforage/'+uri+'.json')
-                 if((typeof(indexedDB)!="undefined")&(!localStorage.clinAppsNoLocalForage)){
+                 if((typeof(indexedDB)!="undefined")&(!localStorage.sbmAppsNoLocalForage)){
                     localforage.setItem(uri,x)
                      .then(function(x){
                          console.log('saved '+x.length)
                          fun(x)
                       })
                      .catch(function(err){
-                         localStorage.setItem('clinAppsNoLocalForage',true)
+                         localStorage.setItem('sbmAppsNoLocalForage',true)
                       })
                  }else{
                      console.log('no indexedDB')
                      fun(x)
                  }
             })
-            
+
         }else{
             console.log('loading '+uri+' from cache')
             fun(x)
@@ -96,15 +96,15 @@ clinApps.localforage=function(uri,fun){ // try localforage first, if it fails, i
 $( document ).ready(function() {
     // load json manifest
     $.getJSON('app/apps.json',function(x){
-        clinApps.manif={}
+        sbmApps.manif={}
         x.forEach(function(xi,i){
-            clinApps.manif[xi.name]=xi
-            //clinApps.assembleApp(xi)
+            sbmApps.manif[xi.name]=xi
+            //sbmApps.assembleApp(xi)
         })
-        //clinApps.msg('SBM appstore','green')
-        clinAppsHead.hidden=false
-        clinApps() // <-- it all starts here
-    })   
+        //sbmApps.msg('SBM appstore','green')
+        sbmStoreHead.hidden=false
+        sbmApps() // <-- it all starts here
+    })
 });
 
 // MIS

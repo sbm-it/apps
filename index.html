@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>clinApps</title>
+<title>sbmApps</title>
 <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
 <link rel="icon" sizes="192x192" href="clinApps192.png">
-<link rel="apple-touch-icon" sizes="128x128" href="clinApps128.png">
+<link rel="apple-touch-icon" sizes="128x128" href="sbmApps128.png">
 <meta name="viewport" content="width=device-width">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,16 +15,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.3.0/localforage.min.js"></script>
 <script src="https://jonasalmeida.github.io/jmat/jmat.js"></script>
-<script src="clinApps.js"></script>
+<script src="sbmApps.js"></script>
 </head>
 <body>
-	<div class="container" id="clinApps">
-		<a href="http://stonybrookmedicine.edu" target=_blank><h3 style="vertical-align:text-top" id="clinAppsHead"><img src="SBMed-logo.png" height="35px"></a><i style="font-family:Palatino;color:maroon"> <a href="toGit.html" target="_blank">Apps <i class="fa fa-github-alt"></i></a></i></h3>
-		<div id="clinAppsHead2">
-			<i class="fa fa-home" id="msgIcon" style="font-size:50px;color:maroon" onclick="clinApps.loadApps()"></i>
-			<span id="clinAppsMsg">SBM app store</span>
+	<div class="container" id="sbmApps">
+		<a href="http://stonybrookmedicine.edu" target=_blank><h3 style="vertical-align:text-top" id="sbmStoreHead"><img src="SBMed-logo.png" height="35px"></a><i style="font-family:Palatino;color:maroon"> <a href="toGit.html" target="_blank">Apps <i class="fa fa-github-alt"></i></a></i></h3>
+		<div id="sbmAppHead">
+			<i class="fa fa-home" id="msgIcon" style="font-size:50px;color:maroon" onclick="sbmApps.loadApps()"></i>
+			<span id="sbmAppsMsg">SBM app store</span>
+			<hr>
 		</div>
-		<hr>
+
 		<div id="appSpace"></div>
 
 	</div>

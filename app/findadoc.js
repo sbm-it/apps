@@ -2,18 +2,18 @@ console.log('findadoc.js')
 
 // get physician data
 
-clinApps.app.findadoc={
+sbmApps.app.findadoc={
     fun:{}
 }
 
-clinApps.app.findadoc.fun=function(){ // find a doc action
-    clinAppsHead.hidden=false
-    clinAppsMsg.hidden=false
+sbmApps.app.findadoc.fun=function(){ // find a doc action
+    sbmStoreHead.hidden=false
+    sbmAppsMsg.hidden=false
     msgIcon.className="fa fa-user-md"
-    clinApps.msg(clinApps.manif.findadoc.description,'maroon')
+    sbmApps.msg(sbmApps.manif.findadoc.description,'maroon')
     appSpace.innerHTML='loading find-a-doc ... '
-    clinApps.localforage('SBMdocs',function(x){
-        clinApps.app.findadoc.docs=x
+    sbmApps.localforage('SBMdocs',function(x){
+        sbmApps.app.findadoc.docs=x
         // assemble UI
         //var h = '<table>'
         //h += '<tr><td><h4 style="color:maroon">Speciality</h4></td><td id="speciality"><select id="specialitySelect"></select></td></tr>'
@@ -39,7 +39,7 @@ clinApps.app.findadoc.fun=function(){ // find a doc action
                 sp.style.color='blue'
                 sp.onclick=function(){
                     if(this.textContent=='+'){
-                        doc=clinApps.app.findadoc.docs[parseInt(this.parentElement.i)]
+                        doc=sbmApps.app.findadoc.docs[parseInt(this.parentElement.i)]
                         this.textContent='-'
                         var docDiv = document.createElement('div') // doc div
                         var im = document.createElement('img')
@@ -60,7 +60,7 @@ clinApps.app.findadoc.fun=function(){ // find a doc action
                         docDiv.appendChild(im)
                         $('<p>working on formating all of this:</p>').appendTo(docDiv)
                         this.appendChild(docDiv)
-                        
+
                         var pre=document.createElement('pre')
                         pre.innerHTML=JSON.stringify(JSON.stringify(doc,null,3)).replace(/\\n/g,'<br />').replace(/\\/g,'').slice(1,-1)
                         this.appendChild(pre)
@@ -76,7 +76,7 @@ clinApps.app.findadoc.fun=function(){ // find a doc action
             return docs
         }
         var trimDocs=function(){ // queries results and redisplays them
-            var docs = clinApps.app.findadoc.docs
+            var docs = sbmApps.app.findadoc.docs
             docs.forEach(function(d,i){docs[i].i=i}) // keeping index
             var changed=false
             if(specialityCheck.checked){
@@ -91,16 +91,16 @@ clinApps.app.findadoc.fun=function(){ // find a doc action
                         return false
                     } else{
                         return d.INSURANCE.match(insuranceSelect.value)
-                    }                
+                    }
                 })
                 changed=true
             }
-            if(distanceCheck.checked&&(clinApps.geo)){ //resort by distance to current geo
+            if(distanceCheck.checked&&(sbmApps.geo)){ //resort by distance to current geo
                 // calculate the distance of each doc to the target clinAppls.geo.location
                 d=[]
                 docs.forEach(function(doc,i){ // at latitude 40 ...
                     if(doc.geoloc){
-                        d[i]=Math.sqrt(Math.pow(63*(doc.geoloc.lat-clinApps.geo.location.lat),2)+Math.pow(63*(doc.geoloc.lng-clinApps.geo.location.lng),2))
+                        d[i]=Math.sqrt(Math.pow(63*(doc.geoloc.lat-sbmApps.geo.location.lat),2)+Math.pow(63*(doc.geoloc.lng-sbmApps.geo.location.lng),2))
                     }else{
                         d[i]=1000 // indicates NaN really
                     }
@@ -138,10 +138,10 @@ clinApps.app.findadoc.fun=function(){ // find a doc action
                             if((xi.types.join()=="street_address")||(x.results.length==1)){
                                 currentFormatedAddress.textContent=xi.formatted_address
                                 currentFormatedAddress.style.color='green'
-                                clinApps.geo={location:xi.geometry.location}
+                                sbmApps.geo={location:xi.geometry.location}
                                 xi.address_components.forEach(function(xii){
                                     if(xii.types.join()=="postal_code"){
-                                        clinApps.geo.zip=xii.long_name
+                                        sbmApps.geo.zip=xii.long_name
                                         locationZip.value=xii.long_name
                                     }
                                 })
@@ -172,22 +172,22 @@ clinApps.app.findadoc.fun=function(){ // find a doc action
             locationCurrent.style.color='orange'
             navigator.geolocation.getCurrentPosition(function(g){
                 locationCurrent.style.color='green'
-                clinApps.geo=g
+                sbmApps.geo=g
                 locationCurrent.disabled=false
-                getGeo('latlng='+clinApps.geo.coords.latitude+','+clinApps.geo.coords.longitude)
+                getGeo('latlng='+sbmApps.geo.coords.latitude+','+sbmApps.geo.coords.longitude)
             })
         }
         // digest data
-        clinApps.app.findadoc.tab={}
-        var parms = Object.getOwnPropertyNames(clinApps.app.findadoc.docs[0])
+        sbmApps.app.findadoc.tab={}
+        var parms = Object.getOwnPropertyNames(sbmApps.app.findadoc.docs[0])
         parms.forEach(function(p){
-            clinApps.app.findadoc.tab[p]=[]
-            clinApps.app.findadoc.docs.forEach(function(d,i){
-                clinApps.app.findadoc.tab[p][i]=d[p]
-            })            
+            sbmApps.app.findadoc.tab[p]=[]
+            sbmApps.app.findadoc.docs.forEach(function(d,i){
+                sbmApps.app.findadoc.tab[p][i]=d[p]
+            })
         })
         // prepare indexes
-        clinApps.app.findadoc.Ind={
+        sbmApps.app.findadoc.Ind={
             Speciality:{},
             Insurance:{},
             Location:{}
@@ -202,31 +202,31 @@ clinApps.app.findadoc.fun=function(){ // find a doc action
         // Index Speciality first
         setTimeout(function(){
             var allVals=[]
-            clinApps.app.findadoc.tab.SPECIALTY.forEach(function(c){
+            sbmApps.app.findadoc.tab.SPECIALTY.forEach(function(c){
                 c.split('<br />').forEach(function(ci){
                     allVals.push(trailBlank(ci))
                 })
             })
-            clinApps.app.findadoc.Ind.Speciality=jmat.unique(allVals).sort().slice(1)
-            clinApps.app.findadoc.Ind.Speciality.forEach(function(s){
+            sbmApps.app.findadoc.Ind.Speciality=jmat.unique(allVals).sort().slice(1)
+            sbmApps.app.findadoc.Ind.Speciality.forEach(function(s){
                 var op = document.createElement('option')
                 op.textContent=s
                 specialitySelect.appendChild(op)
             })
-        },10) 
+        },10)
         // Index Insurance
         setTimeout(function(){
             var allVals=[]
-            clinApps.app.findadoc.tab.INSURANCE.forEach(function(v){
+            sbmApps.app.findadoc.tab.INSURANCE.forEach(function(v){
                 if(v){
                 var vv = v.replace('<li>','').replace(/<\/li>$/,'').split('</li><li>')
                     vv.forEach(function(vi){
                         allVals.push(trailBlank(vi))
                     })
-                }        
+                }
             })
-            clinApps.app.findadoc.Ind.Insurance=jmat.unique(allVals).sort()
-            clinApps.app.findadoc.Ind.Insurance.forEach(function(s){
+            sbmApps.app.findadoc.Ind.Insurance=jmat.unique(allVals).sort()
+            sbmApps.app.findadoc.Ind.Insurance.forEach(function(s){
                 var op = document.createElement('option')
                 op.textContent=s
                 insuranceSelect.appendChild(op)
@@ -242,12 +242,12 @@ clinApps.app.findadoc.fun=function(){ // find a doc action
 }()
 
 
-// extensions on clinApps root
+// extensions on sbmApps root
 
-clinApps.app.findadoc.fun=(function(){
+sbmApps.app.findadoc.fun=(function(){
 
-    clinApps.getSbmDoctors=function(fun){ // get SBM doctors
-        if(!fun){fun=function(){console.log(clinApps.getSbmDoctors.docs)}}
+    sbmApps.getSbmDoctors=function(fun){ // get SBM doctors
+        if(!fun){fun=function(){console.log(sbmApps.getSbmDoctors.docs)}}
         localforage.getItem('SBMdocs').then(function(docs){
             if(true){
             //if(!docs){
@@ -260,28 +260,28 @@ clinApps.app.findadoc.fun=(function(){
                     })
                     i++
                     console.log(i+': '+x.length)
-                    clinApps.msg(' loading basic info on '+docs.length+' physicians','red')
+                    sbmApps.msg(' loading basic info on '+docs.length+' physicians','red')
                     if(x.length>0){
                         getDoc(i)
                     }else{
-                        clinApps.msg(' loaded basic info on '+docs.length+' physicians','green')
+                        sbmApps.msg(' loaded basic info on '+docs.length+' physicians','green')
                         // loading detailed data for each of them now
-                        clinApps.getSbmDoctors.docs=docs
+                        sbmApps.getSbmDoctors.docs=docs
                         var j = 0
-                        var funj = function(){ // updates basic info in jth entry of clinApps.getSbmDoctors.docs                     
-                            if(j<clinApps.getSbmDoctors.docs.length){
+                        var funj = function(){ // updates basic info in jth entry of sbmApps.getSbmDoctors.docs
+                            if(j<sbmApps.getSbmDoctors.docs.length){
                                 j++
-                                clinApps.getOneSbmDoc(j-1,funj)
+                                sbmApps.getOneSbmDoc(j-1,funj)
                             }else{ // done updating
-                                localforage.setItem('SBMdocs',clinApps.getSbmDoctors.docs).then(function(){
+                                localforage.setItem('SBMdocs',sbmApps.getSbmDoctors.docs).then(function(){
                                     localStorage.setItem('SBMdocs',new Date())
-                                    clinApps.msg(' loaded detailed info on '+docs.length+' SBM physicians','green')
+                                    sbmApps.msg(' loaded detailed info on '+docs.length+' SBM physicians','green')
                                     fun()
                                 })
                             }
                         }
-                        clinApps.getOneSbmDoc(j,funj)       
-                    }        
+                        sbmApps.getOneSbmDoc(j,funj)
+                    }
                 }
                 var getDoc=function(i){
                     $.getScript(url+i,function(x){
@@ -290,43 +290,43 @@ clinApps.app.findadoc.fun=(function(){
                 }
                 getDoc(i) // starts here
             }else{
-                clinApps.getSbmDoctors.docs=docs
+                sbmApps.getSbmDoctors.docs=docs
                 fun()
             }
         })
     }
 
-    clinApps.getOneSbmDoc=function(i,fun){ // get info on the ith SBM doc
+    sbmApps.getOneSbmDoc=function(i,fun){ // get info on the ith SBM doc
         if(!fun){fun=function(y){console.log(i,y)}}
         var url='http://findadoc.uhmc.sunysb.edu/fadp/fadprofile-drupal.asp?pid='
-        var xi = clinApps.getSbmDoctors.docs[i]
+        var xi = sbmApps.getSbmDoctors.docs[i]
         jsonpCallback=function(xj){ // same ugly frozen jsonp callback :-(
             Object.getOwnPropertyNames(xj[0]).forEach(function(p){
                 xi[p]=xj[0][p]
                 if(!xi.PICTURE.match(/\.jpg/i)){
                     xi.PICTURE='http://www.stonybrookmedicine.edu/webfiles/physician-pics/placeholder.png'
                 }
-                clinApps.getSbmDoctors.docs[i]=xi
+                sbmApps.getSbmDoctors.docs[i]=xi
             })
             //console.log(i,xi)
-            clinApps.msg(i+'/'+clinApps.getSbmDoctors.docs.length+': loading on Dr '+xi.LASTNAME+', '+xi.FIRSTNAME)
+            sbmApps.msg(i+'/'+sbmApps.getSbmDoctors.docs.length+': loading on Dr '+xi.LASTNAME+', '+xi.FIRSTNAME)
             fun(xi)
         }
         if((xi.ID!=='1901')&&(xi.ID!=='1902')&&(xi.ID!=='1865')&&(xi.ID!=='1848')){ // #72 last time I checked
             $.getScript(url+xi.ID)
         }else{
-            console.log('see https://github.com/sbm-it/clinApps/issues/2')
+            console.log('see https://github.com/sbm-it/sbmApps/issues/2')
             fun(xi)
         }
     }
 
-    clinApps.getSbmDoctors.geocode=function(){ // geocode docs in clinApps.getSbmDoctors.docs
-        clinApps.getSbmDoctors.docs.forEach(function(d,i){
+    sbmApps.getSbmDoctors.geocode=function(){ // geocode docs in sbmApps.getSbmDoctors.docs
+        sbmApps.getSbmDoctors.docs.forEach(function(d,i){
             if(d.LOCATION){
                 var loc = d.LOCATION.match(/https:\/\/www.google.com\/maps\/place\/[^" ]+/g)
                 if(loc){
                     d.mapAddress=loc[0].replace('https://www.google.com/maps/place/','')
-                    clinApps.getSbmDoctors.docs[i]=d
+                    sbmApps.getSbmDoctors.docs[i]=d
                     // get geocode
                     if(true){
                     if(!d.geoloc){
@@ -337,7 +337,7 @@ clinApps.app.findadoc.fun=(function(){
                                 var res=g.results[0]
                                 if(res.geometry){
                                     d.geoloc=res.geometry.location
-                                    clinApps.getSbmDoctors.docs[i]=d
+                                    sbmApps.getSbmDoctors.docs[i]=d
                                 }else{
                                     console.log('no geometry: ',i,d)
                                 }
@@ -352,7 +352,7 @@ clinApps.app.findadoc.fun=(function(){
                                         var res=g.results[0]
                                         if(res.geometry){
                                             d.geoloc=res.geometry.location
-                                            clinApps.getSbmDoctors.docs[i]=d
+                                            sbmApps.getSbmDoctors.docs[i]=d
                                         }else{
                                             console.log('no geometry: ',i,d)
                                         }
@@ -361,7 +361,7 @@ clinApps.app.findadoc.fun=(function(){
                                   .fail(function(err){
                                       throw('final failure ',i,d,g)
                                   })
-                           }                    
+                           }
                         })
                         .fail(function(err){
                             console.log('failure',i,d,g)
@@ -370,7 +370,7 @@ clinApps.app.findadoc.fun=(function(){
                         console.log('done already: ',i)
                     }
 
-                    }                           
+                    }
                 }
             }
         })
@@ -379,30 +379,30 @@ clinApps.app.findadoc.fun=(function(){
 
 
 
-    
+
     var lala = 9
     return true
 })()
 
 if(false){
     localforage.getItem('SBMdocs').then(function(x){
-        clinApps.getSbmDoctors.docs=x;
+        sbmApps.getSbmDoctors.docs=x;
         console.log('loaded '+x.length+ 'SBM docs')
-        clinApps.getSbmDoctors.geocode()
+        sbmApps.getSbmDoctors.geocode()
     })
 }
 
 if(false){
     localforage.getItem('SBMdocs')
     .then(function(x){
-        clinApps.getSbmDoctors.docs=x;
+        sbmApps.getSbmDoctors.docs=x;
         console.log('loaded '+x.length+ ' SBM docs')
     })
 }
 
 /*
 $.getJSON('data/SBMdocs.json',function(x){
-    clinApps.msg('Loaded data on '+x.length+' physicians','green')
+    sbmApps.msg('Loaded data on '+x.length+' physicians','green')
     var h = '<h3 style="color:maroon">Referrals</h3>'
     h += '<table>'
     h += '<tr><td>Speciality</td id="speciality"><td></td></tr>'
