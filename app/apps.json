@@ -16,7 +16,7 @@
 	{
 		"name":"findadocWade",
 		"description":"New Find a Stony Brook Medicine Doctor by Wade",
-		"icon":"app/findadoc2.png",
+		"icon":"https://sbmedxdev.uhmc.sunysb.edu/sbmApps/img/patientcare-icon.png",
 		"onclick":"app/findadocWade.js",
 		"fa":"fa-user-md"
 	}
