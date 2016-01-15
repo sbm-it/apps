@@ -95,17 +95,21 @@ sbmApps.localforage=function(uri,fun){ // try localforage first, if it fails, it
 // ini
 $( document ).ready(function() {
     // load json manifest
-    $.getJSON('app/apps.json',function(x){
-        sbmApps.manif={}
-        x.forEach(function(xi,i){
-            sbmApps.manif[xi.name]=xi
-            //sbmApps.assembleApp(xi)
+    if(location.href=='^http://localhost:8080/apps/'||location.href.match('^http[s]*://sbm-it.github.io/apps/')){
+        if(location.href.match('^http://sbm-it.github.io/apps/')){location.protocol='https:'} // force ssl
+        $.getJSON('app/apps.json')
+         .then(function(x){
+            sbmApps.manif={}
+            x.forEach(function(xi,i){
+                sbmApps.manif[xi.name]=xi
+                //sbmApps.assembleApp(xi)
+            })
+            //sbmApps.msg('SBM appstore','green')
+            sbmStoreHead.hidden=false
+            sbmApps() // <-- it all starts here
         })
-        //sbmApps.msg('SBM appstore','green')
-        sbmStoreHead.hidden=false
-        sbmApps() // <-- it all starts here
-    })
-});
+    }
+})
 
 // MIS
 
