@@ -13,7 +13,7 @@ To develop your own Stony Brook Medicine App (sbmApp), you’ll need to take two
 
 ```javascript
 
-<script=“http://sbm-it.github.io/apps/sbmApps.js”>lala</script>
+<script src=“http://sbm-it.github.io/apps/sbmApps.js”>lala</script>
 
 ```
 
