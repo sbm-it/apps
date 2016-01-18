@@ -92,6 +92,14 @@ sbmApps.localforage=function(uri,fun){ // try localforage first, if it fails, it
     })
 }
 
+sbmApps.linkStore=function(){ // add link to store
+    var a = document.createElement('a')
+    a.href="https://sbm-it.github.io/apps"
+    a.innerHTML='<img id="linkStoreImg" src="http://sbm-it.github.io/apps/img/sbmApps.png" width=150>'
+    var p = document.body.children[0].parentElement
+    p.insertBefore(a,document.body.children[0])
+}
+
 // ini
 $( document ).ready(function() {
     // load json manifest
@@ -116,7 +124,7 @@ $( document ).ready(function() {
 //done=function(x){console.log('loaded '+x.length)}
 
 // function for application to go back to app store
-function goHome(url) {
-    location.href = url;
-}
+//function goHome(url) {
+//    location.href = url;
+//}
 
