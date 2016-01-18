@@ -95,7 +95,7 @@ sbmApps.localforage=function(uri,fun){ // try localforage first, if it fails, it
 // ini
 $( document ).ready(function() {
     // load json manifest
-    if(location.href=='^http://localhost:8080/apps/'||location.href.match('^http[s]*://sbm-it.github.io/apps/')){
+    if(location.href.match('^http://localhost:')||location.href.match('^http[s]*://sbm-it.github.io/apps/')){
         if(location.href.match('^http://sbm-it.github.io/apps/')){location.protocol='https:'} // force ssl
         $.getJSON('app/apps.json')
          .then(function(x){
