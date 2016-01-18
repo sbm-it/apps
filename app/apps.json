@@ -16,7 +16,7 @@
 	{
 		"name":"Stony Brook Directory At-A-Glance",
 		"description":"The At-A-Glance Directory is designed to improve communication both internally and with Community counterparts.  This will help you find important phone numbers including numbers for patient units, as well as the various centers here at Stony Brook Medicine, with a simple touch.  This will enable you to have a more efficient way of accessing areas you need to call when dealing with patient related issues.",
-		"icon":"http://sbm-it.github.io/StonyBrookDirectory/icon.png",
+		"icon":"https://sbm-it.github.io/StonyBrookDirectory/icon.png",
 		"onclick":"app/SBDirectory.js",
 		"fa":"fa-user-md"
 	}
