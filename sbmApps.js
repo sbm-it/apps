@@ -124,7 +124,7 @@ $( document ).ready(function() {
 //done=function(x){console.log('loaded '+x.length)}
 
 // function for application to go back to app store
-//function goHome(url) {
-//    location.href = url;
-//}
-
+// Hi Wade, note this function will polute the DOM:
+function goHome(url) {
+    location.href = url;
+}
