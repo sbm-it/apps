@@ -1,4 +1,4 @@
-onsole.log('loaded SHDirectory.js')
+console.log('loaded SHDirectory.js')
 
 // clean appSpace
 appSpace.innerHTML="loading SH Directory-At-A-Glance App"
