@@ -24,4 +24,10 @@ If properly configured (see above) your sbmApp will appear in the home panel of 
 
 You probably guessed it already - if you develop and app but do not register it in the [apps.json](https://github.com/sbm-it/apps/blob/gh-pages/app/apps.json) manifest your app is secret: only those to whom you provide the link with the hashtag identifier will be able to find it.
 
+#### Link back to Store ####
 
+The sbmApps object includes a method, sbmApps.linkStore, that will add a link to the Apps store at the top left of your app. All you need is to include 
+
+		sbmApps.linkStore()  
+
+somewhere in your own code.
