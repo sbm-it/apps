@@ -119,4 +119,4 @@ $( document ).ready(function() {
 function goHome(url) {
     location.href = url;
 }
-}
+
