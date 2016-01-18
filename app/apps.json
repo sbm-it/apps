@@ -14,10 +14,17 @@
 		"fa":"fa-user-md"
 	},
 	{
-		"name":"findadocWade",
-		"description":"New Find a Stony Brook Medicine Doctor by Wade",
-		"icon":"https://sbmedxdev.uhmc.sunysb.edu/sbmApps/img/patientcare-icon.png",
-		"onclick":"app/findadocWade.js",
+		"name":"Stony Brook Directory At-A-Glance",
+		"description":"The At-A-Glance Directory is designed to improve communication both internally and with Community counterparts.  This will help you find important phone numbers including numbers for patient units, as well as the various centers here at Stony Brook Medicine, with a simple touch.  This will enable you to have a more efficient way of accessing areas you need to call when dealing with patient related issues.",
+		"icon":"https://sbm-it.github.io/StonyBrookDirectory/icon.png",
+		"onclick":"app/SBDirectory.js",
+		"fa":"fa-user-md"
+	},
+	{
+		"name":"Southampton Directory At-A-Glance",
+		"description":"The At-A-Glance Directory is designed to improve communication both internally and with Community counterparts.  This will help you find important phone numbers including numbers for patient units, as well as the various centers here at Stony Brook Medicine, with a simple touch.  This will enable you to have a more efficient way of accessing areas you need to call when dealing with patient related issues.",
+		"icon":"https://sbm-it.github.io/SouthamptonDirectory/icon.png",
+		"onclick":"app/SHDirectory.js",
 		"fa":"fa-user-md"
 	}
 ]

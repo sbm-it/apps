@@ -114,3 +114,9 @@ $( document ).ready(function() {
 // MIS
 
 //done=function(x){console.log('loaded '+x.length)}
+
+// function for application to go back to app store
+function goHome(url) {
+    location.href = url;
+}
+
