@@ -100,6 +100,11 @@ sbmApps.linkStore=function(){ // add link to store
     p.insertBefore(a,document.body.children[0])
 }
 
+// function for any application to go back to app store
+sbmApps.goHome=function goHome(url) {
+    location.href = url || "https://sbm-it.github.io/apps/img/sbmApps.png";
+}
+
 // ini
 $( document ).ready(function() {
     // load json manifest
@@ -122,9 +127,3 @@ $( document ).ready(function() {
 // MIS
 
 //done=function(x){console.log('loaded '+x.length)}
-
-// function for application to go back to app store
-// Hi Wade, note this function will polute the DOM:
-function goHome(url) {
-    location.href = url;
-}
