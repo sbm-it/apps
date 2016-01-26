@@ -1,0 +1,49 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+.navbar-inverse {
+    background-color: #990000;
+    border-color: #080808;
+}
+.navbar-brand { font-size: 22px; font-weight: 200; text-transform:capitalize;
+}
+
+.jumbotron .SBMIconContainer {
+    height: 100%;
+	min-height: 130px;
+    position: relative;
+}
+.SBMIconContainer {
+    margin: 0 auto;
+	max-width: 1170px;
+	margin-bottom: 15px;
+}
+.SBMIconContainer .icon-box {
+    bottom: -87px;
+    left: 10px;
+    position: absolute;
+    transition: bottom .3s;
+    z-index: 3;
+}
+#appSpace {
+	margin: 30px 0;
+}
+.appIcon {
+	border-radius: 10px;
+	moz-border-radius: 10px;
+	 box-shadow: 0px 0px 8px grey;
+	 margin: 15px;
+}
+h2 {
+	color: #666;
+}
+h4.title {
+	font-weight: 200;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 6px;
+}
+a {
+	color: #990000;
+}
