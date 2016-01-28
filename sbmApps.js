@@ -19,14 +19,15 @@ sbmApps.msg=function(txt,clr){
 
 // assemble an app UI
 sbmApps.assembleApp=function(x){
-    //var
-    img = document.createElement('img')
+    var img = document.createElement('img')
+    lala = img
     img.style.borderRadius="10px"
     img.style.boxShadow="0px 0px 8px grey"
-    img.style.margin="15px"
+    img.style.margin="6px"
     appSpace.appendChild(img)
     img.src=x.icon
-    img.width=100
+    img.width=Math.min(100,Math.round(window.innerWidth/3.8))
+    //img.width="20%"
     img.onclick=function(){
         sbmApps.getScript(x.onclick)
         //$.getScript(x.onclick)
