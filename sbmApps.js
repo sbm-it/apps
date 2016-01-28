@@ -21,6 +21,9 @@ sbmApps.msg=function(txt,clr){
 sbmApps.assembleApp=function(x){
     //var
     img = document.createElement('img')
+    img.style.borderRadius="10px"
+    img.style.boxShadow="0px 0px 8px grey"
+    img.style.margin="15px"
     appSpace.appendChild(img)
     img.src=x.icon
     img.width=100
