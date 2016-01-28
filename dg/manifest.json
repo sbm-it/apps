@@ -1,0 +1,24 @@
+{
+  "lang": "en",
+  "name": "StonyBrook Medicine Clinical Apps",
+  "short_name": "sbmApps",
+  "icons": [{
+        "src": "img/sbm48.png",
+        "sizes": "48x48"
+      },{
+        "src": "img/sbm96.png",
+        "sizes": "96x96"
+      },{
+        "src": "img/sbm128.png",
+        "sizes": "128x128"
+      }],
+  "splash_screens": [{
+        "src": "snapshot.png",
+        "sizes": "339x212"
+      },{
+        "src": "img/sbm2.png",
+        "sizes": "331x87"
+      }],
+  "start_url": "https://sbu-bmi.github.io/sbmApps/index.html",
+  "display": "fullscreen"
+}
