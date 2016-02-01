@@ -118,6 +118,7 @@ sbmApps.enableResearch=function(){
     researchAppsCheck.onchange=function(){
         if(researchAppsCheck.checked){
             researchAppsCheckCode.style.visibility="visible"
+            researchAppsCheckCode.value="enter key"
         }else{
             researchAppsCheckCode.style.visibility="hidden"
         }
