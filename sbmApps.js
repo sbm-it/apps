@@ -130,6 +130,12 @@ sbmApps.enableResearch=function(){
             researchAppsCheckCode.style.visibility="hidden"
         }
     }
+    researchAppsCheckCode.onclick=function(){
+        if(researchAppsCheckCode.value==="enter key"){
+            researchAppsCheckCode.value=''
+        }
+    }
+
 }
 
 // ini
