@@ -26,7 +26,7 @@ sbmApps.iconWidth=Math.min(100,Math.round(window.innerWidth/3.8))
 sbmApps.assembleApp=function(x){
     var img = document.createElement('img')
     lala = img
-    img.style.borderRadius="20px"
+    img.style.borderRadius="10px"
     img.style.boxShadow="0px 0px 8px grey"
     img.style.margin="6px"
     appSpace.appendChild(img)
@@ -106,7 +106,7 @@ sbmApps.linkStore=function(){ // add link to store
     var a = document.createElement('a')
     lnk.appendChild(a)
     a.href="https://sbm-it.github.io/apps"
-    a.innerHTML='<img id="linkStoreImg" src="https://sbm-it.github.io/apps/dg/app/sbm-red-icon.png" style="box-shadow:0px 0px 8px grey;height:100px;margin:6px;border-radius:10px">'
+    a.innerHTML='<img id="linkStoreImg" src="https://sbm-it.github.io/apps/dg/app/sbm-red-icon.png" style="box-shadow:0px 0px 8px grey;height:100px;margin:6px;border-radius:20px">'
     var sp = document.createElement('span')
     lnk.appendChild(sp)
     sp.textContent=' SBM App Store'
