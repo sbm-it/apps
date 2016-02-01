@@ -4,7 +4,10 @@ sbmApps= function(){
     // ini
     sbmApps.loadApps()
     //sbmApps.msg('loading apps ...')
+    imgStoreHead.style.width=sbmApps.iconWidth
+    imgStoreHead.style.verticalAlign="bottom"
     sbmApps.getHash()
+    sbmApps.enableResearch()
     //sbmAppsHead2.hidden=true
     //sbmAppsMsg.hidden=true
 }
@@ -17,6 +20,8 @@ sbmApps.msg=function(txt,clr){
     sbmAppsMsg.innerHTML=txt
 }
 
+sbmApps.iconWidth=Math.min(100,Math.round(window.innerWidth/3.8))
+
 // assemble an app UI
 sbmApps.assembleApp=function(x){
     var img = document.createElement('img')
@@ -26,7 +31,7 @@ sbmApps.assembleApp=function(x){
     img.style.margin="6px"
     appSpace.appendChild(img)
     img.src=x.icon
-    img.width=Math.min(100,Math.round(window.innerWidth/3.8))
+    img.width=sbmApps.iconWidth
     //img.width="20%"
     img.onclick=function(){
         sbmApps.getScript(x.onclick)
@@ -107,6 +112,16 @@ sbmApps.linkStore=function(){ // add link to store
 // function for any application to go back to app store
 sbmApps.goHome=function goHome(url) {
     location.href = url || "https://sbm-it.github.io/apps/img/sbmApps.png";
+}
+
+sbmApps.enableResearch=function(){
+    researchAppsCheck.onchange=function(){
+        if(researchAppsCheck.checked){
+            researchAppsCheckCode.style.visibility="visible"
+        }else{
+            researchAppsCheckCode.style.visibility="hidden"
+        }
+    }
 }
 
 // ini
