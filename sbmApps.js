@@ -102,11 +102,18 @@ sbmApps.localforage=function(uri,fun){ // try localforage first, if it fails, it
 }
 
 sbmApps.linkStore=function(){ // add link to store
+    var lnk = document.createElement('div')
     var a = document.createElement('a')
+    lnk.appendChild(a)
     a.href="https://sbm-it.github.io/apps"
-    a.innerHTML='<img id="linkStoreImg" src="https://sbm-it.github.io/apps/img/sbmApps.png" width=150>'
+    a.innerHTML='<img id="linkStoreImg" src="https://sbm-it.github.io/apps/dg/app/sbm-red-icon.png" style="box-shadow:0px 0px 8px grey;height:100px;margin:6px;border-radius:10px">'
+    var sp = document.createElement('span')
+    lnk.appendChild(sp)
+    sp.textContent=' SBM App Store'
+    sp.style.color='maroon'
+    sp.style.fontSize='xx-large'
     var p = document.body.children[0].parentElement
-    p.insertBefore(a,document.body.children[0])
+    p.insertBefore(lnk,document.body.children[0])
 }
 
 // function for any application to go back to app store
