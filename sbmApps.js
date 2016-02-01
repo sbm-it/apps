@@ -106,7 +106,7 @@ sbmApps.linkStore=function(){ // add link to store
     var a = document.createElement('a')
     lnk.appendChild(a)
     a.href="https://sbm-it.github.io/apps"
-    a.innerHTML='<img id="linkStoreImg" src="https://sbm-it.github.io/apps/dg/app/sbm-red-icon.png" style="box-shadow:0px 0px 8px grey;height:100px;margin:6px;border-radius:20px">'
+    a.innerHTML='<img id="linkStoreImg" src="https://sbm-it.github.io/apps/dg/app/sbm-red-icon.png" style="box-shadow:0px 0px 8px grey;height:80px;margin:6px;border-radius:15px">'
     var sp = document.createElement('span')
     lnk.appendChild(sp)
     sp.textContent=' SBM App Store'
