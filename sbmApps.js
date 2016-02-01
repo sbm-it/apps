@@ -26,7 +26,7 @@ sbmApps.iconWidth=Math.min(100,Math.round(window.innerWidth/3.8))
 sbmApps.assembleApp=function(x){
     var img = document.createElement('img')
     lala = img
-    img.style.borderRadius="10px"
+    img.style.borderRadius="20px"
     img.style.boxShadow="0px 0px 8px grey"
     img.style.margin="6px"
     appSpace.appendChild(img)
