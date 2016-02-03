@@ -139,7 +139,8 @@ sbmApps.enableResearch=function(){
 }
 
 // ini
-$( document ).ready(function() {
+//$( document ).ready(function() {
+window.onload=function() {
     // load json manifest
     if(location.href.match('^http://localhost:')||location.href.match('^http[s]*://sbm-it.github.io/apps/')){
         if(location.href.match('^http://sbm-it.github.io/apps/')){location.protocol='https:'} // force ssl
@@ -155,7 +156,7 @@ $( document ).ready(function() {
             sbmApps() // <-- it all starts here
         })
     }
-})
+}
 
 // MIS
 
