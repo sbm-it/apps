@@ -109,11 +109,12 @@ sbmApps.linkStore=function(){ // add link to store
     a.innerHTML='<img id="linkStoreImg" src="https://sbm-it.github.io/apps/dg/app/sbm-red-icon.png" style="box-shadow:0px 0px 8px grey;height:80px;margin:6px;border-radius:15px">'
     var sp = document.createElement('span')
     lnk.appendChild(sp)
+    lnk.id="linkStoreHead"
     sp.textContent=' SBM App Store'
     sp.style.color='maroon'
     sp.style.fontSize='xx-large'
     var p = document.body.children[0].parentElement
-    p.insertBefore(lnk,document.body.children[0])
+    p.insertBefore(lnk,p.children[0])
 }
 
 // function for any application to go back to app store
