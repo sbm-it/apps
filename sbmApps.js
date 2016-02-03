@@ -122,17 +122,17 @@ sbmApps.goHome=function goHome(url) {
 }
 
 sbmApps.enableResearch=function(){
-    researchAppsCheck.onchange=function(){
-        if(researchAppsCheck.checked){
-            researchAppsCheckCode.style.visibility="visible"
-            researchAppsCheckCode.value="enter key"
+    privateAppsCheck.onchange=function(){
+        if(privateAppsCheck.checked){
+            privateAppsCheckCode.style.visibility="visible"
+            privateAppsCheckCode.value="enter key"
         }else{
-            researchAppsCheckCode.style.visibility="hidden"
+            privateAppsCheckCode.style.visibility="hidden"
         }
     }
-    researchAppsCheckCode.onclick=function(){
-        if(researchAppsCheckCode.value==="enter key"){
-            researchAppsCheckCode.value=''
+    privateAppsCheckCode.onclick=function(){
+        if(privateAppsCheckCode.value==="enter key"){
+            privateAppsCheckCode.value=''
         }
     }
 
