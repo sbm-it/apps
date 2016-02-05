@@ -10,7 +10,7 @@ sbmApps.app.findadoc.fun=function(){ // find a doc action
     sbmStoreHead.hidden=false
     sbmAppsMsg.hidden=false
     msgIcon.className="fa fa-user-md"
-    sbmApps.msg(sbmApps.manif.findadoc.description,'maroon')
+    //sbmApps.msg(sbmApps.manif.findadoc.description,'maroon')
     appSpace.innerHTML='loading find-a-doc ... '
     sbmApps.localforage('SBMdocs',function(x){
         sbmApps.app.findadoc.docs=x
