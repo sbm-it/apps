@@ -48,14 +48,15 @@ sbmApps.assembleApp=function(x){
     appSpace.appendChild(img)
     img.src=x.icon
     img.width=sbmApps.iconWidth
+    img.height=sbmApps.iconWidth
     //img.width="20%"
     img.onclick=function(){
         sbmApps.getScript(x.onclick)
         imgStoreHead.src = x.icon
         imgStoreHeadTD.innerHTML='<h3 style="color:maroon">'+x.name+'</h3><span style="color:maroon">'+x.description+'</span>'
         imgStoreHead.onclick=function(){
-            //document.location.href='http://localhost:8080/apps/'
-            document.location.href="https://sbm-it.github.io/apps/"
+            document.location.href='http://localhost:8080/apps/'
+            //document.location.href="https://sbm-it.github.io/apps/"
         }
 
         
@@ -64,6 +65,7 @@ sbmApps.assembleApp=function(x){
         //sbmAppsHead2.hidden=false
         //sbmAppsHead.hidden=true
     }
+    return img
 
 }
 
@@ -148,6 +150,15 @@ sbmApps.goHome=function goHome(url) {
 }
 
 sbmApps.enableResearch=function(){
+    privateAppsCheckCode.onkeyup=function(evt){
+        this.value=this.value.toLowerCase()
+        if(this.value.length>4){
+            $.getScript('app/'+this.value+'.js')
+             .then(function(){
+                 privateAppsCheckCode.value=''
+             })
+        }
+    }
     privateAppsCheck.onchange=function(){
         if(privateAppsCheck.checked){
             privateAppsCheckCode.style.visibility="visible"
@@ -164,6 +175,25 @@ sbmApps.enableResearch=function(){
 
 }
 
+sbmApps.insertApp=function(mf){
+    //var mf = { // manifest entry
+    //    name:"cbase",
+    //    description:"1st connect to cbase, more after that",
+    //    icon:"https://cbase.som.sunysb.edu/images/layout/default/cbase_logo.png",
+    //    onclick:"http://localhost:8080/cbase/cbaseConnect.js",
+    //}
+    var manif = localStorage.getItem('sbmApps.manif')
+    if(!manif){manif={}}else{manif=JSON.parse(manif)}
+    manif[mf.name]=mf
+    localStorage.setItem('sbmApps.manif',JSON.stringify(manif))
+    if(!sbmApps.manif[mf.name]){
+        var img = sbmApps.assembleApp(mf)
+        img.parentElement.insertBefore(img,img.parentElement.children[0])
+    }
+    
+    4
+}
+
 // ini
 //$( document ).ready(function() {
 window.onload=function() {
@@ -172,7 +202,13 @@ window.onload=function() {
         if(location.href.match('^http://sbm-it.github.io/apps/')){location.protocol='https:'} // force ssl
         $.getJSON('app/apps.json')
          .then(function(x){
-            sbmApps.manif={}
+            sbmApps.manif=localStorage.getItem('sbmApps.manif')
+            //sbmApps.manif={}
+            if(!sbmApps.manif){
+                sbmApps.manif={}
+            }else{
+                sbmApps.manif=JSON.parse(sbmApps.manif)
+            }
             x.forEach(function(xi,i){
                 sbmApps.manif[xi.name]=xi
                 //sbmApps.assembleApp(xi)
