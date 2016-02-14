@@ -55,8 +55,8 @@ sbmApps.assembleApp=function(x){
         imgStoreHead.src = x.icon
         imgStoreHeadTD.innerHTML='<h3 style="color:maroon">'+x.name+'</h3><span style="color:maroon">'+x.description+'</span>'
         imgStoreHead.onclick=function(){
-            document.location.href='http://localhost:8080/apps/'
-            //document.location.href="https://sbm-it.github.io/apps/"
+            //document.location.href='http://localhost:8080/apps/'
+            document.location.href="https://sbm-it.github.io/apps/"
         }
 
         
