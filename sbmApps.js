@@ -1,5 +1,11 @@
 console.log('sbmApps.js loaded')
 
+// make sure jQuery is there <-- this is temorary, rewriting jQuery dependencies
+if(typeof(jQuery)=='undefined'){
+    var sc = document.createElement('script');sc.src="https://code.jquery.com/jquery-2.2.0.min.js"
+    document.head.appendChild(sc);sc.onload=(function(){this.parentElement.removeChild(this)})
+} 
+
 sbmApps= function(){
     // ini
     sbmApps.loadApps()
@@ -176,12 +182,6 @@ sbmApps.enableResearch=function(){
 }
 
 sbmApps.insertApp=function(mf){
-    //var mf = { // manifest entry
-    //    name:"cbase",
-    //    description:"1st connect to cbase, more after that",
-    //    icon:"https://cbase.som.sunysb.edu/images/layout/default/cbase_logo.png",
-    //    onclick:"http://localhost:8080/cbase/cbaseConnect.js",
-    //}
     var manif = localStorage.getItem('sbmApps.manif')
     if(!manif){manif={}}else{manif=JSON.parse(manif)}
     manif[mf.name]=mf
@@ -198,7 +198,7 @@ sbmApps.insertApp=function(mf){
 //$( document ).ready(function() {
 window.onload=function() {
     // load json manifest
-    if(location.href.match('^http://localhost:')||location.href.match('^http[s]*://sbm-it.github.io/apps/')){
+    if(location.href.match(/localhost.*apps.*/)||location.href.match('^http[s]*://sbm-it.github.io/apps/')){
         if(location.href.match('^http://sbm-it.github.io/apps/')){location.protocol='https:'} // force ssl
         $.getJSON('app/apps.json')
          .then(function(x){
