@@ -9,7 +9,7 @@ console.log('info.js loaded')
 false||(function(){ // this little trick will have all variables stay local
     var h = ''
     h += '<h3 style="color:maroon">Share it</h3>'
-    h += '<p style="color:navy"><a href="http://sbm-it.github.io/apps" target="_blank"><img src="img/qrcode.png"></a>'
+    h += '<p style="color:navy"><a href="http://sbm-it.github.io/apps" target="_blank"><img width="'+(sbmApps.iconWidth*2)+'" src="img/qrcode.png"></a><br> and then add page to home screen.'
     h += '<h3 style="color:maroon">About</h3>'
     h += '<p style="color:navy">As part of a new "mobile-first" technology development initiative, <a href="http://stonybrookmedicine.edu/" target="_blank">Stony Brook Medicine</a> is developing an experimental App Store. In other words, don\'t take us seriously just yet.</p>'
     h += '<p style="color:navy">This experiment seeks to assess the cross-platform use of HTML5 Apps, very much along the same lines of <a href="http://smarthealthit.org/smart-on-fhir/" target="_blank">SMART</a>. Similarly, this is also an effort to make the most of patient-facing informatics applications using the new <a href="https://www.hl7.org/fhir/summary.html" target="_blank">HL7 FHIR</a>.'
