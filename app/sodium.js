@@ -3,6 +3,6 @@
 sbmApps.insertApp({
     name:"sodium",
     description:"Cardiology clinical trial on sodium intake",
-    icon:"http://sbu-bmi.github.io/sodium/sodium.png",
-    onclick:"http://sbu-bmi.github.io/sodium/sodium.js"
+    icon:"https://sbu-bmi.github.io/sodium/sodium.png",
+    onclick:"https://sbu-bmi.github.io/sodium/sodium.js"
 })
