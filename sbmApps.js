@@ -199,7 +199,7 @@ sbmApps.insertApp=function(mf){
 window.onload=function() {
     // load json manifest
     if(location.href.match(/localhost.*apps.*/)||location.href.match('^http[s]*://sbm-it.github.io/apps/')){
-        if(location.href.match('^http://sbm-it.github.io/apps/')){location.protocol='https:'} // force ssl
+        //if(location.href.match('^http://sbm-it.github.io/apps/')){location.protocol='https:'} // force ssl
         $.getJSON('app/apps.json')
          .then(function(x){
             sbmApps.manif=localStorage.getItem('sbmApps.manif')
