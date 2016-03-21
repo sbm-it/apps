@@ -10,7 +10,7 @@ ___
 
 To develop your own Stony Brook Medicine App (sbmApp), you’ll need to take two basic steps. The first is to register your application in the [apps.json](https://github.com/sbm-it/apps/blob/gh-pages/app/apps.json) manifest, and the second is to include the following script in your new App.
 
-		<script src=“https://sbm-it.github.io/apps/sbmApps.js”></script>
+		<script src="https://sbm-it.github.io/apps/sbmApps.js"></script>
 
 This script loads an object, **sbmApps**, that provides a number of functionalities that will come handy, particularly if you are using the App store template by targeting the **appSpace** div to assemble your user interface. This object was designed specifically to stay out of the way, regardless of your programming style or framework. On the contrary, its development will largely be the response to requests for support of store-wide requests that can range from support for loading data from specific sources to support for a recommendation/feedback functionality where users rate the apps they use. In other words, this small object will otherwise stay quiet in the corner waiting to be needed.
 
