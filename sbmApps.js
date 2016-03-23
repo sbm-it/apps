@@ -57,15 +57,17 @@ sbmApps.assembleApp=function(x){
     img.height=sbmApps.iconWidth
     //img.width="20%"
     img.onclick=function(){
-        sbmApps.getScript(x.onclick)
-        imgStoreHead.src = x.icon
-        imgStoreHeadTD.innerHTML='<h3 style="color:maroon">'+x.name+'</h3><span style="color:maroon">'+x.description+'</span>'
-        imgStoreHead.onclick=function(){
-            //document.location.href='http://localhost:8080/apps/'
-            document.location.href="https://sbm-it.github.io/apps/"
+        if(x.onclick.match(/\.js$/)){
+            sbmApps.getScript(x.onclick)
+            imgStoreHead.src = x.icon
+            imgStoreHeadTD.innerHTML='<h3 style="color:maroon">'+x.name+'</h3><span style="color:maroon">'+x.description+'</span>'
+            imgStoreHead.onclick=function(){
+                //document.location.href='http://localhost:8080/apps/'
+                document.location.href="https://sbm-it.github.io/apps/"
+            }
+        }else{
+            location.href=x.onclick
         }
-
-        
         //$.getScript(x.onclick)
         //sbmApps.msg(x.description,'blue',1000)
         //sbmAppsHead2.hidden=false
