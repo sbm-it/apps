@@ -1,6 +1,4 @@
-sbmApps.insertApp({
-    name:"Fibonacci",
-    description:"generates Fibonacci series",
-    icon:"https://www.mathsisfun.com/numbers/images/fibonacci.jpg",
-    onclick:"https://sbm-it.github.io/fibonacci/fib.js"
-})
+$.getJSON("https://sbm-it.github.io/fibonacci/sbmManifest.json")
+ .then(function(x){
+     sbmApps.insertApp(x)
+  })
