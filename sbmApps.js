@@ -32,12 +32,17 @@ sbmApps.msg=function(txt,clr,t){
 }
 
 // this one is important: assemble an app passed in as a DOM element, or as html
-sbmApps.render=function(div){
+sbmApps.render=function(h){
+   if(typeof(appSpace)=='undefined'){
+       appSpace=document.createElement('div')
+       appSpace.className="container"
+       document.body.appendChild(appSpace)
+   }
    appSpace.innerHTML=''
-   if(typeof(div)=='string'){ // if the html is being passed in
-       appSpace.innerHTML=div
+   if(typeof(h)=='string'){ // if the html is being passed in
+       appSpace.innerHTML=h
    }else{ // if we're getting the DOM element
-       appSpace.appendChild(div)
+       appSpace.appendChild(h)
    }
    return appSpace
 }
@@ -100,10 +105,35 @@ sbmApps.getHash=function(){
     }
 }
 
-sbmApps.getScript=function(src){ // like $.getScript but loads it into the head
-    var s = document.createElement('script')
-    s.src=src
-    document.head.appendChild(s)
+sbmApps.getScript=function(src,fun){ // like $.getScript but loads it into the head
+    if(Array.isArray(src)){
+        sbmApps.getScripts(src,fun)
+    }else{
+        if(src.match(/.js$/)){
+            var s = document.createElement('script')
+            s.src=src
+        }else if(src.match(/.css$/)){
+            var s = document.createElement('link')
+            s.rel='stylesheet'
+            s.href=src
+        }
+        if(fun){
+            s.onload=function(){
+                fun()
+            }       
+        }
+        document.head.appendChild(s)
+    }
+}
+sbmApps.getScripts=function(src,fun){
+    if(src.length>0){
+        console.log('loading',src[0])
+        sbmApps.getScript(src[0],function(){
+            sbmApps.getScripts(src.slice(1),fun)
+        })
+    }else{
+        fun()
+    }
 }
 
 sbmApps.localforage=function(uri,fun){ // try localforage first, if it fails, it tries localforage/
@@ -192,8 +222,28 @@ sbmApps.insertApp=function(mf){
         var img = sbmApps.assembleApp(mf)
         img.parentElement.insertBefore(img,img.parentElement.children[0])
     }
-    
-    4
+}
+
+sbmApps.externalApp=function(manifSrc){ //assemble external app from manifest
+    sbmApps.getScript([
+        'https://code.jquery.com/jquery-2.1.3.min.js',
+        'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css',
+        'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js',
+    ],function(){
+        console.log('loading manifest',manifSrc)
+        $.getJSON(manifSrc)
+         .then(function(x){
+             // assemble external app now
+             var div = document.createElement('div')
+             div.className="container"
+             document.body.appendChild(div)
+             var h ='<a href="http://sbm-it.github.io/apps/"><img id="linkStoreImg" src="'+x.icon+'" style="box-shadow:0px 0px 8px grey;height:80px;margin:6px;border-radius:18px"></a>'
+             h += ' <span style="color:maroon;fontSize=xx-large">'+x.description+'</span><hr>'
+             h += '<div id="appSpace"></div>'
+             div.innerHTML=h
+             sbmApps.getScript(x.onclick)
+         })
+    })
 }
 
 // ini
