@@ -1,4 +1,4 @@
-$.getJSON("https://shah2129.github.io/zprototype1/sbmManifest.json")
+$.getJSON("https://sbm-it.github.io/fibonacci/sbmManifest.json")
  .then(function(x){
      sbmApps.insertApp(x)
      console.log('inserted app prototype')
