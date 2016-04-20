@@ -21,5 +21,6 @@ false||(function(){ // this little trick will have all variables stay local
     h += '<p style="color:navy"><a href="http://sbm-it.github.io/apps" target="_blank"><img width="'+(sbmApps.iconWidth)+'" src="img/qrcode.png"></a><br>'
     h += '<p style="color:navy"></p>'
     h += '<p style="color:navy"></p>'
+console.log(h);
     sbmApps.render(h)
 })()
