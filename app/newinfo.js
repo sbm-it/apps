@@ -8,6 +8,7 @@ console.log('info.js loaded')
 
 false||(function(){ // this little trick will have all variables stay local
     var h = ''
+    h += '<style>p { text-indent: 50px; }</style>'
     h += '<div class="container">'
     h += '<h3 style="color:maroon">Install It</h3>'
     h += '<p>'
