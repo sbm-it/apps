@@ -10,7 +10,7 @@ false||(function(){ // this little trick will have all variables stay local
     var h = ''
     h += '<div class="container">'
     h += '<h3 style="color:maroon">Install It</h3>'
-    h += '<p align="center">'
+    h += '<p>'
     h += '<a href="http://sbm-it.github.io/apps/AddAndroidHomeScreen.html" target="_blank"><img width="'+(sbmApps.iconWidth)+'" src="img/android.png"></a>'
     h += '<a href="http://sbm-it.github.io/apps/AddIOSHomeScreen.html" target="_blank"><img width="'+(sbmApps.iconWidth)+'" src="img/apple.png"></a></p>'
     h += '<h3 style="color:maroon">Use It</h3>'
