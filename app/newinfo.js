@@ -8,6 +8,7 @@ console.log('info.js loaded')
 
 false||(function(){ // this little trick will have all variables stay local
     var h = ''
+    h += '<div class="container">'
     h += '<h3 style="color:maroon">Install It</h3>'
     h += '<p align="center">'
     h += '<a href="http://sbm-it.github.io/apps/AddAndroidHomeScreen.html" target="_blank"><img width="'+(sbmApps.iconWidth)+'" src="img/android.png"></a>'
@@ -21,6 +22,7 @@ false||(function(){ // this little trick will have all variables stay local
     h += '<p align="center"><a href="http://sbm-it.github.io/apps" target="_blank"><img width="'+(sbmApps.iconWidth)+'" src="img/qrcode.png"></a><br>'
     h += '<p style="color:navy"></p>'
     h += '<p style="color:navy"></p>'
+    h += '</div>'
 console.log(h);
     sbmApps.render(h)
 })()
