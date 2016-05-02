@@ -229,6 +229,7 @@ sbmApps.externalApp=function(manifSrc){ //assemble external app from manifest
         'https://sbm-it.github.io/apps/js/jquery-2.1.3.min.js',
         'https://sbm-it.github.io/apps/js/bootstrap.min.css',
         'https://sbm-it.github.io/apps/js/bootstrap.min.js',
+        'https://sbm-it.github.io/apps/js/font-awesome.min.css',
     ],function(){
         console.log('loading manifest',manifSrc)
         $.getJSON(manifSrc)
