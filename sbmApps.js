@@ -2,7 +2,7 @@ console.log('sbmApps.js loaded')
 
 // make sure jQuery is there <-- this is temorary, rewriting jQuery dependencies
 if(typeof(jQuery)=='undefined'){
-    var sc = document.createElement('script');sc.src="./js/jquery-2.2.0.min.js"
+    var sc = document.createElement('script');sc.src="https://sbm-it.github.io/apps/js/jquery-2.2.0.min.js"
     document.head.appendChild(sc);sc.onload=(function(){this.parentElement.removeChild(this)})
 }
 
