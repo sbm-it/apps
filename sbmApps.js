@@ -238,8 +238,10 @@ sbmApps.externalApp=function(manifSrc){ //assemble external app from manifest
              var div = document.createElement('div')
              div.className="container"
              document.body.appendChild(div)
-             var h ='<a href="http://sbm-it.github.io/apps/"><img id="linkStoreImg" src="'+x.icon+'" style="box-shadow:0px 0px 8px grey;height:80px;margin:6px;border-radius:18px"></a>'
-             h += ' <span style="color:maroon;fontSize=xx-large">'+x.description+'</span><hr>'
+             var h ='<div id="sbmAppHead">'
+               h += '<a href="http://sbm-it.github.io/apps/"><img id="linkStoreImg" src="'+x.icon+'" style="box-shadow:0px 0px 8px grey;height:80px;margin:6px;border-radius:18px"></a>'
+               h += ' <span id="sbmAppDescription" style="color:maroon;fontSize=xx-large">'+x.description+'</span><hr>'
+             h += '</div>'
              h += '<div id="appSpace"></div>'
              div.innerHTML=h
              sbmApps.getScript(x.onclick)
