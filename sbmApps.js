@@ -121,6 +121,10 @@ sbmApps.getScript=function(src,fun){ // like $.getScript but loads it into the h
             s.onload=function(){
                 fun()
             }
+        }else{
+            s.onload=function(){
+                console.log(src+' loaded')
+            }
         }
         document.head.appendChild(s)
     }
@@ -132,6 +136,7 @@ sbmApps.getScripts=function(src,fun){
             sbmApps.getScripts(src.slice(1),fun)
         })
     }else{
+        if(!fun){fun=function(){console.log('done loading scripts')}}
         fun()
     }
 }
