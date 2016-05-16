@@ -19,5 +19,11 @@
 		"icon":"https://sbm-it.github.io/SouthamptonDirectory/icon.png",
 		"onclick":"app/SHDirectory.js",
 		"fa":"fa-user-md"
-	}
+	},
+	{
+    "name":"asthma",
+    "description":"Asthma tracker",
+    "icon":"https://asthmatrack.github.io/app/img/lungs.jpg",
+    "onclick":"https://asthmatrack.github.io/app/asthmaTrackApp.js"
+}
 ]
