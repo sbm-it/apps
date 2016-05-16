@@ -23,7 +23,7 @@
 	{
     "name":"asthma",
     "description":"Asthma tracker",
-    "icon":"https://asthmatrack.github.io/app/img/lungs.jpg",
+    "icon":"https://asthmatrack.github.io/app/img/lungsTrack.jpg",
     "onclick":"https://asthmatrack.github.io/app/asthmaTrackApp.js"
 }
 ]
