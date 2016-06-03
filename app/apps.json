@@ -1,4 +1,10 @@
-[
+[	{
+		"name":"Apps Info",
+		"description":"Informational Page for SBM App Store",
+		"icon":"http://sbm-it.github.io/apps-info/img/question.png",
+		"onclick":"https://sbm-it.github.io/apps-info",
+		"fa":"fa-info-circle"
+	},
 	{
 		"name":"Info",
 		"description":"Information About App Store",
