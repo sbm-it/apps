@@ -30,7 +30,7 @@
 		"name":"Find-A-Doctor",
 		"description":"Find a doctory by specialy, insurance type, and area.",
 		"icon":"https://sbm-it.github.io/referrals/img/patientcare-icon.png",
-		"onclick":"app/referrals.js",
+		"onclick":"https://sbm-it.github.io/referrals/#/referrals-search",
 		"fa":"fa-user-md"
 	}
 ]
