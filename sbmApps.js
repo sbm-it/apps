@@ -2,9 +2,10 @@ console.log('sbmApps.js loaded')
 
 // make sure jQuery is there <-- this is temorary, rewriting jQuery dependencies
 if(typeof(jQuery)=='undefined'){
-    var sc = document.createElement('script');sc.src="https://code.jquery.com/jquery-2.2.0.min.js"
+    //var sc = document.createElement('script');sc.src="https://code.jquery.com/jquery-2.2.0.min.js"
+    var sc = document.createElement('script');sc.src="https://sbm-it.github.io/apps/js/jquery-2.1.3.min.js"
     document.head.appendChild(sc);sc.onload=(function(){this.parentElement.removeChild(this)})
-} 
+}
 
 sbmApps= function(){
     // ini
@@ -17,7 +18,7 @@ sbmApps= function(){
     //sbmAppsHead2.hidden=true
     //sbmAppsMsg.hidden=true
 }
-sbmApps.app={} // place to store app specific material 
+sbmApps.app={} // place to store app specific material
 
 // plain message writter
 sbmApps.msg=function(txt,clr,t){
@@ -120,7 +121,7 @@ sbmApps.getScript=function(src,fun){ // like $.getScript but loads it into the h
         if(fun){
             s.onload=function(){
                 fun()
-            }       
+            }
         }
         document.head.appendChild(s)
     }
