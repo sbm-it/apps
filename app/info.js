@@ -16,6 +16,6 @@ false||(function(){ // this little trick will have all variables stay local
     h += '<h3 style="color:maroon">How to set it in your device</h3>'
     h += '<p style="color:navy">The <i><b>sbmApps</b></i> framework makes use of another technological innovation, this time in Web Technologies: the emergence of WebApp standards supported by Web Browser manufacturers, as described by <a href="http://www.w3.org/2008/webapps/" target="_blank">W3C\'s WebApps Working Group</a>. This mechanism uses the "add to home screen" feature in your browser to assemble a native-looking App if a properly formated manifest is found (which sbmApps includes already). The same application will also be ported to the App stores of Chrome, Android, Apple and Microsoft.</p>'
     h += '<h3 style="color:maroon">Enough talking</h3>'
-    h += '<p style="color:navy">Indeed, here is a video showing how this works:<br> [<span style="color:red">there will be a video here</span>]</p>'
+    h += '<p style="color:navy">Indeed, here\'s a picture showing how this works: <br><img src="https://sbm-it.github.io/apps/img/AddIOS/image006.png"><br> If you are using a iOS device make sure to do this after pointing Safari to <a href="https://sbm-it.github.io/apps" target="_blank">sbm-it.github.io/apps</a>. </p>'
     sbmApps.render(h)
 })()  
