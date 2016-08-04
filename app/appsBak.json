@@ -1,0 +1,9 @@
+[
+	{
+		"name":"findadoc",
+		"description":"Old Find a Stony Brook Medicine Doctor",
+		"icon":"https://sbm-it.github.io/apps/dg/app/findadoc3.png",
+		"onclick":"app/findadoc.js",
+		"fa":"fa-user-md"
+	},
+]

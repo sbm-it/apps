@@ -1,17 +1,16 @@
-[
-	{
-		"name":"info",
-		"description":"Information about app store",
-		"icon":"app/info.png",
-		"onclick":"app/info.js",
+[	{
+		"name":"Apps Info",
+		"description":"Informational Page for SBM App Store",
+		"icon":"http://sbm-it.github.io/apps-info/img/question.png",
+		"onclick":"https://sbm-it.github.io/apps-info",
 		"fa":"fa-info-circle"
 	},
 	{
-		"name":"findadoc",
-		"description":"Old Find a Stony Brook Medicine Doctor",
-		"icon":"https://sbm-it.github.io/apps/dg/app/findadoc3.png",
-		"onclick":"app/findadoc.js",
-		"fa":"fa-user-md"
+		"name":"Info",
+		"description":"Information About App Store",
+		"icon":"app/info.png",
+		"onclick":"app/info.js",
+		"fa":"fa-info-circle"
 	},
 	{
 		"name":"Stony Brook Directory At-A-Glance",
@@ -25,6 +24,19 @@
 		"description":"The At-A-Glance Directory is designed to improve communication both internally and with Community counterparts.  This will help you find important phone numbers including numbers for patient units, as well as the various centers here at Stony Brook Medicine, with a simple touch.  This will enable you to have a more efficient way of accessing areas you need to call when dealing with patient related issues.",
 		"icon":"https://sbm-it.github.io/SouthamptonDirectory/icon.png",
 		"onclick":"app/SHDirectory.js",
+		"fa":"fa-user-md"
+	},
+	{
+    		"name":"asthma",
+    		"description":"Asthma tracker",
+    		"icon":"https://asthmatrack.github.io/app/img/lungsTrack.jpg",
+    		"onclick":"https://asthmatrack.github.io/app/asthmaTrackApp.js"
+	},
+	{
+		"name":"Find-A-Doctor",
+		"description":"Find a doctory by specialy, insurance type, and area.",
+		"icon":"https://sbm-it.github.io/referrals/img/patientcare-icon.png",
+		"onclick":"https://sbm-it.github.io/referrals/#/referrals-search",
 		"fa":"fa-user-md"
 	}
 ]
