@@ -27,12 +27,6 @@
 		"fa":"fa-user-md"
 	},
 	{
-    		"name":"asthma",
-    		"description":"Asthma tracker",
-    		"icon":"https://asthmatrack.github.io/app/img/lungsTrack.jpg",
-    		"onclick":"https://asthmatrack.github.io/app/asthmaTrackApp.js"
-	},
-	{
 		"name":"Find-A-Doctor",
 		"description":"Find a doctory by specialy, insurance type, and area.",
 		"icon":"https://sbm-it.github.io/referrals/img/patientcare-icon.png",
