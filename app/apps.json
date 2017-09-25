@@ -21,7 +21,7 @@
 	},
 	{
 		"name":"Southampton Directory At-A-Glance",
-		"description":"The At-A-Glance Directory is designed to improve communication both internally and with Community counterparts.  This will help you find important phone numbers including numbers for patient units, as well as the various centers here at Stony Brook Medicine, with a simple touch.  This will enable you to have a more efficient way of accessing areas you need to call when dealing with patient related issues.",
+		"description":"The At-A-Glance Directory is designed to improve communication both internally and with Community counterparts. This will help you find important phone numbers for Administration and Departments here at Stony Brook Southampton, with a simple touch. This will enable you to have a more efficient was of accessing areas you need to call when handling patient related issues.",
 		"icon":"https://sbm-it.github.io/SouthamptonDirectory/icon.png",
 		"onclick":"app/SHDirectory.js",
 		"fa":"fa-user-md"
